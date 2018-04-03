@@ -3,15 +3,38 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon app.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules",
+    "production": "set NODE_ENV=production&& webpack --hide-modules"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
     "body-parser": "~1.18.2",
-    "cookie-parser": "~1.4.3",
+    "cookie-parser": "^1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.15.5",
+    "express-session": "^1.15.6",
     "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5"
+    "nodemon": "^1.17.3",
+    "serve-favicon": "~2.4.5",
+    "socket.io": "^2.1.0",
+    "vue": "^2.5.16",
+    "vue-loader": "^14.2.2",
+    "vue-router": "^3.0.1",
+    "vue-socket.io": "^2.1.1-b",
+    "webpack": "^3.11.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.11",
+    "html-webpack-plugin": "^3.2.0",
+    "jsx-loader": "^0.13.2",
+    "node-sass": "^4.8.3",
+    "vue-template-compiler": "^2.5.16",
+    "webpack-cli": "^2.0.13"
   }
 }
