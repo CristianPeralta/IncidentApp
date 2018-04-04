@@ -1,8 +1,15 @@
 var Api = require('../src/services/incidentServices');
 
 module.exports.login = (req, res) => {
-  req.session.user = user
-  let currentUser = req.session.user
+  let data = req.body
+  Api.login({
+    email: data.email,
+    password: data.password
+  }).then((response) => {
+    req.session.user = user
+    let currentUser = req.session.user
+    return res.json(currentUser)
+  })
 }
 
 module.exports.logout= function (req,res) {
