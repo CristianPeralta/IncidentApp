@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Example from '@/components/Example'
 import SignUp from '@/components/SignUp'
+import NewDependence from '@/components/NewDependence'
 
 Vue.use(Router)
 export default new Router({
@@ -15,6 +16,11 @@ export default new Router({
       path: '/signup',
       name: 'SignUp',
       component: SignUp
+    },
+    {
+      path: '/dependence/new',
+      name: 'NewDependence',
+      component: NewDependence
     }
   ],
 })

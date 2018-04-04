@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import iServices from '@/services/incidentServices'
+import iServices from '@/services/IncidentServices'
 export default {
   name: 'SignUp',
   data () {

@@ -1,4 +1,4 @@
-var Api = require('../src/services/incidentServices');
+var Api = require('../src/services/IncidentServices');
 
 module.exports.login = (req, res) => {
   let data = req.body

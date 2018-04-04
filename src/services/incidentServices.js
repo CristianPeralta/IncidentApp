@@ -17,5 +17,8 @@ export default {
   },
   logout () {
     return Api().post('logout');
+  },
+  newDependence (params) {
+    return Api().post('dependences', params);
   }
 }
