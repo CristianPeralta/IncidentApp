@@ -450,10 +450,13 @@ function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_incidentServices__ = __webpack_require__(52);
 //
 //
 //
 //
+
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'Example',
@@ -771,7 +774,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -798,6 +801,73 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-f1fcfeec", { render: render, staticRenderFns: staticRenderFns })
   }
 }
+
+/***/ }),
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__source_Api__ = __webpack_require__(55);
+
+
+/* unused harmony default export */ var _unused_webpack_default_export = ({
+  signup(params) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__source_Api__["a" /* default */])().post('signup', params, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+  },
+  login(params) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__source_Api__["a" /* default */])().post('login', params);
+  },
+  user() {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__source_Api__["a" /* default */])().get('user');
+  },
+  logout() {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__source_Api__["a" /* default */])().post('logout');
+  }
+});
+
+/***/ }),
+/* 53 */,
+/* 54 */,
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (() => {
+  return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
+    baseURL: `http://localhost:3000`
+  });
+});
 
 /***/ })
 ],[16]);

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon --exec babel-node --presets es2015 app.js",
     "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules",
     "production": "set NODE_ENV=production&& webpack --hide-modules"
   },
@@ -29,6 +29,7 @@
     "webpack": "^3.11.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",

@@ -1,4 +1,4 @@
-import Api from '@/services/Api'
+import Api from './source/Api'
 
 export default {
   signup (params) {

@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import iServices from '@/services/incidentServices'
+
 export default {
   name: 'Example',
   data () {
