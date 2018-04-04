@@ -9,7 +9,7 @@ export default {
   name: 'Example',
   data () {
     return {
-      text: 'Hello World!'
+      text: 'OSIS!'
     }
   }
 }
