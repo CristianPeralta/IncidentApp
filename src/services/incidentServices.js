@@ -20,5 +20,8 @@ export default {
   },
   newDependence (params) {
     return Api().post('dependences', params);
+  },
+  getDependences () {
+    return Api().get('dependences');
   }
 }

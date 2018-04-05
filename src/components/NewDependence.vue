@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import ChatServices from '@/services/IncidentServices'
+import IncidentServices from '@/services/IncidentServices'
 
 export default {
   name: 'NewDependence',
@@ -77,13 +77,24 @@ export default {
         longitude: '',
         photoUrl: ''
       },
+      allDependences: [],
       preview: 'https://st3.depositphotos.com/5266903/12981/v/950/depositphotos_129812138-stock-illustration-management-office-flat-vector-icon.jpg'
     }
+  },
+  created () {
+    this.getDependences()
   },
   methods: {
     sendForm () {
       IncidentServices.newDependence(this.form).then((response) => {
-          console.log(response)
+          this.allDependences.push(response.data)
+      })
+    },
+    getDependences () {
+      IncidentServices.getDependences().then((response) => {
+          response.data.map((val) => {
+            this.allDependences.push(val)
+          })
       })
     },
     processFile (e) {
