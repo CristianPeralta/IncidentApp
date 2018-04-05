@@ -579,7 +579,6 @@ function normalizeComponent (
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -595,13 +594,17 @@ function normalizeComponent (
         cellphone: '',
         dependence: ''
       },
-      draftPassword: ''
+      draftPassword: '',
+      allDependences: []
     };
   },
   computed: {
     isValidPassword() {
       return this.password == this.draftPassword;
     }
+  },
+  created() {
+    this.getDependences();
   },
   methods: {
     submit() {
@@ -611,6 +614,13 @@ function normalizeComponent (
           console.log('Wait your confirmation');
         });
       }
+    },
+    getDependences() {
+      __WEBPACK_IMPORTED_MODULE_0__services_IncidentServices__["a" /* default */].getDependences().then(response => {
+        response.data.map(val => {
+          this.allDependences.push(val);
+        });
+      });
     }
   }
 });
@@ -1196,7 +1206,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -1416,13 +1426,13 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _c("option", { attrs: { selected: "", value: "M" } }, [
-                      _vm._v("Male")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "F" } }, [_vm._v("Female")])
-                  ]
+                  _vm._l(_vm.allDependences, function(dependence, index) {
+                    return _c(
+                      "option",
+                      { domProps: { value: dependence._id } },
+                      [_vm._v(_vm._s(dependence.acronym))]
+                    )
+                  })
                 )
               ])
             ]),

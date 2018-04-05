@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import IncidentServices from '@/services/IncidentServices'
+import iServices from '@/services/IncidentServices'
 
 export default {
   name: 'NewDependence',
@@ -86,12 +86,12 @@ export default {
   },
   methods: {
     sendForm () {
-      IncidentServices.newDependence(this.form).then((response) => {
+      iServices.newDependence(this.form).then((response) => {
           this.allDependences.push(response.data)
       })
     },
     getDependences () {
-      IncidentServices.getDependences().then((response) => {
+      iServices.getDependences().then((response) => {
           response.data.map((val) => {
             this.allDependences.push(val)
           })

@@ -48,8 +48,7 @@
               <div class="field">
                 <div class="control">
                   <select class="input select" v-model="gender" placeholder="dependence">
-                    <option selected value="M">Male</option>
-                    <option value="F">Female</option>
+                    <option v-for="(dependence, index) in allDependences" :value="dependence._id">{{dependence.acronym}}</option>
                   </select>
                 </div>
               </div>
@@ -81,13 +80,17 @@ export default {
         cellphone: '',
         dependence: ''
       },
-      draftPassword: ''
+      draftPassword: '',
+      allDependences: []
     }
   },
   computed: {
     isValidPassword () {
       return this.password == this.draftPassword
     }
+  },
+  created () {
+    this.getDependences()
   },
   methods: {
     submit () {
@@ -97,6 +100,13 @@ export default {
           console.log('Wait your confirmation')
         })
       }
+    },
+    getDependences () {
+      iServices.getDependences().then((response) => {
+          response.data.map((val) => {
+            this.allDependences.push(val)
+          })
+      })
     }
   }
 }
