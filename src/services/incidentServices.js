@@ -1,13 +1,16 @@
 import Api from './source/Api'
 
 export default {
+  // signup (params) {
+  //   return Api().post('signup', params, {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data'
+  //       }
+  //     }
+  //   )
+  // },
   signup (params) {
-    return Api().post('signup', params, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }
-    )
+    return Api().post('users', params);
   },
   login (params) {
     return Api().post('login', params);

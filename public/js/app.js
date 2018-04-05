@@ -434,12 +434,16 @@ function normalizeComponent (
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+  // signup (params) {
+  //   return Api().post('signup', params, {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data'
+  //       }
+  //     }
+  //   )
+  // },
   signup(params) {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__source_Api__["a" /* default */])().post('signup', params, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    });
+    return Object(__WEBPACK_IMPORTED_MODULE_0__source_Api__["a" /* default */])().post('users', params);
   },
   login(params) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__source_Api__["a" /* default */])().post('login', params);
@@ -595,24 +599,22 @@ function normalizeComponent (
         dependence: ''
       },
       draftPassword: '',
-      allDependences: []
+      allDependences: [],
+      user: {}
     };
   },
-  computed: {
-    isValidPassword() {
-      return this.password == this.draftPassword;
-    }
-  },
-  created() {
+  mounted() {
     this.getDependences();
   },
   methods: {
     submit() {
       if (this.isValidPassword) {
         __WEBPACK_IMPORTED_MODULE_0__services_IncidentServices__["a" /* default */].signup(this.form).then(response => {
-          console.log(response);
+          this.user = response.data;
           console.log('Wait your confirmation');
         });
+      } else {
+        alert('Password doesnt match');
       }
     },
     getDependences() {
@@ -621,6 +623,9 @@ function normalizeComponent (
           this.allDependences.push(val);
         });
       });
+    },
+    isValidPassword() {
+      return this.password == this.draftPassword;
     }
   }
 });
@@ -1206,7 +1211,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -1404,8 +1409,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.gender,
-                        expression: "gender"
+                        value: _vm.form.dependence,
+                        expression: "form.dependence"
                       }
                     ],
                     staticClass: "input select",
@@ -1420,9 +1425,13 @@ var render = function() {
                             var val = "_value" in o ? o._value : o.value
                             return val
                           })
-                        _vm.gender = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
+                        _vm.$set(
+                          _vm.form,
+                          "dependence",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
                       }
                     }
                   },
