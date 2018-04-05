@@ -1,5 +1,5 @@
 <template lang="html">
-  <section class="hero is-success is-fullheight container">
+  <section class="is-fullheight container">
     <div class=""></div>
       <div class="container has-text-centered">
         <div class="column is-4 is-offset-4">
@@ -55,8 +55,8 @@
               <button @click="submit()" class="button is-block is-info is-large is-fullwidth">Sign Me Up</button>
           </div>
           <p class="has-text-grey">
-            <router-link to="/" exact>
-              <a>Sign In</a> &nbsp;·&nbsp;
+            <router-link to="/login" exact>
+              <a>Login</a> &nbsp;·&nbsp;
             </router-link>
             <a href="../">Need Help?</a>
           </p>

@@ -1,12 +1,11 @@
-var Api = require('../src/services/IncidentServices');
+import iServices from '../src/services/IncidentServices'
 
 module.exports.login = (req, res) => {
   let data = req.body
-  Api.login({
-    email: data.email,
-    password: data.password
-  }).then((response) => {
-    req.session.user = user
+  console.log('loggin');
+  iServices.login(data).then((response) => {
+    console.log('respon es api');
+    req.session.user = response.data
     let currentUser = req.session.user
     return res.json(currentUser)
   })

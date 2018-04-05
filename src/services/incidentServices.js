@@ -13,6 +13,8 @@ export default {
     return Api().post('users', params);
   },
   login (params) {
+    console.log('assadas');
+    console.log(params);
     return Api().post('login', params);
   },
   user () {
